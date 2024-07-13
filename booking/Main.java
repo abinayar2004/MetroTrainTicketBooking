@@ -12,7 +12,7 @@ public class Main {
 	static Scanner sc=new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		
+		try {
 		City cty=new City();
 		NewOneDayCard nOne=new NewOneDayCard();
 		NewPermanentCard nPermanent=new NewPermanentCard();
@@ -257,7 +257,10 @@ public class Main {
 			}
 			}
 		}while(choice>=1 && choice <=4);
-		
+		}
+		catch(Exception e) {
+			System.out.println(e);
+		}
 	}
 	
 	
@@ -280,7 +283,7 @@ public class Main {
 		cty.displayCity();
 		destination=sc.nextInt();
 		des=cty.checkCity(destination);
-		while(!des)
+		while(!des|| (source==destination))
 		{
 			System.out.println("\nPlease Select Valid Destination : ");
 			cty.displayCity();
